@@ -1,6 +1,4 @@
-window.onload = function() {
-    displayStores();
-}
+window.onload = function() {}
 
 var map;
 var markers = [];
@@ -15,10 +13,51 @@ function initMap() {
         zoom: 10,
         mapTypeId: 'roadmap'
     });
-    showStoreMarkers();
+    //displayStores();
+    //showStoreMarkers();
+    // setOnClickListener();
+    searchStores();
+
 }
 
-function displayStores() {
+function searchStores() {
+    let foundStores = [];
+    let zipcode = document.getElementById('zip-code-input').value;
+
+    if (zipcode) {
+        for (let store of stores) {
+            if (zipcode === store['address']['postalCode'].substring(0, 5))
+                foundStores.push(store);
+        }
+    } else {
+        foundStores = stores;
+    }
+    clearLocations();
+    displayStores(foundStores);
+    showStoreMarkers(foundStores);
+    setOnClickListener();
+}
+
+function clearLocations() {
+    // infoWindow.close();
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+    markers.length = 0;
+}
+
+function setOnClickListener() {
+
+    let index = 0;
+    let storeElements = document.querySelectorAll('.store-container');
+    storeElements.forEach(function(element, index) {
+        element.addEventListener('click', function() {
+            new google.maps.event.trigger(markers[index], 'click');
+        })
+    })
+}
+
+function displayStores(stores) {
     let storesHtml = '';
     let storeNo = 0;
     for (let store of stores) {
@@ -28,19 +67,22 @@ function displayStores() {
         let phone = store['phoneNumber'];
 
         storesHtml += `
+        
         <div class="store-container">
-            <div class="store-info-container">
-                <div class="store-address">
-                    <span>${address[0]}</span>
-                    <span>${address[1]}</span>
+            <div class="store-container-background">
+                <div class="store-info-container">
+                    <div class="store-address">
+                        <span>${address[0]}</span>
+                        <span>${address[1]}</span>
+                    </div>
+                    <div class="store-phone">
+                        <i class="fas fa-phone"></i> ${phone}
+                    </div>
                 </div>
-                <div class="store-phone">
-                    <i class="fas fa-phone"></i> ${phone}
-                </div>
-            </div>
-            <div class="store-no-container">
-                <div class="store-no">
-                    ${storeNo}
+                <div class="store-no-container">
+                    <div class="store-no">
+                        ${storeNo}
+                    </div>
                 </div>
             </div>
         </div>
@@ -49,7 +91,7 @@ function displayStores() {
     }
 }
 
-function showStoreMarkers() {
+function showStoreMarkers(stores) {
 
     let bounds = new google.maps.LatLngBounds();
     infoWindow = new google.maps.InfoWindow();
@@ -82,11 +124,16 @@ function createMarker(latlng, name, address, storeCount, phoneNumber, openStatus
             ${openStatusText}
         </div>
         <div class="store-info-address">
-            <i class="fas fa-location-arrow"></i>
+            <div class="circle">
+                <i class="fas fa-location-arrow"></i>
+            </div>
+            
             ${address}
         </div>
         <div class="store-info-phone">
-            <i class="fas fa-phone-alt"></i>
+            <div class="circle">
+                <i class="fas fa-phone-alt"></i>
+            </div>
             ${phoneNumber}
         </div>
     </div>
@@ -101,4 +148,6 @@ function createMarker(latlng, name, address, storeCount, phoneNumber, openStatus
         infoWindow.open(map, marker);
     });
     markers.push(marker);
+
+
 }
