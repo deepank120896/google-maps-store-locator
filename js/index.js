@@ -6,10 +6,10 @@ var infoWindow;
 
 function initMap() {
     // var karnataka = { lat: 15.317277, lng: 75.713890 };
-    // var bengaluru = { lat: 12.972442, lng: 77.580643 }
-    var losAngeles = { lat: 34.063380, lng: -118.358080 };
+     var bengaluru = { lat: 12.972442, lng: 77.580643 }
+    //var losAngeles = { lat: +34.063380, lng: -118.358080 };
     map = new google.maps.Map(document.getElementById('map'), {
-        center: losAngeles,
+        center: bengaluru,
         zoom: 10,
         mapTypeId: 'roadmap'
     });
@@ -33,8 +33,8 @@ function searchStores() {
         foundStores = stores;
     }
     clearLocations();
-    displayStores(foundStores);
-    showStoreMarkers(foundStores);
+    //displayStores(foundStores);
+    //showStoreMarkers(foundStores);
     setOnClickListener();
 }
 

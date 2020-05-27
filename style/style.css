@@ -11,29 +11,29 @@ body {
     position: relative;
 }
 
-.store-locator-text {
+.title {
     position: absolute;
-    z-index: 100;
-    font-size: 100px;
+    z-index: 30;
+    font-size: 70px;
     font-style: normal;
     font-weight: normal;
     font-weight: bold;
     text-transform: uppercase;
-    width: 867px;
-    height: 156px;
-    left: 118px;
-    top: 65px;
-    line-height: 156px;
+    width: 800px;
+    height: 150px;
+    left: 110px;
+    top: 60px;
+    line-height: 150px;
     color: #333333;
 }
 
 .search-container {
     position: absolute;
-    z-index: 100;
-    width: 545px;
-    height: 101px;
-    left: 118px;
-    top: 236px;
+    z-index: 30;
+    width: 500px;
+    height: 80px;
+    left: 110px;
+    top: 200px;
     background: #454E53;
     border: 1px solid #979797;
     border-radius: 50px;
@@ -67,7 +67,6 @@ body {
 
 .stores-list {
     flex-grow: 1;
-    /* overflow-y: scroll; */
     padding-left: 20px;
     padding-right: 20px;
 }
@@ -77,17 +76,13 @@ body {
     position: absolute;
     z-index: 100;
     background-color: #454E53;
-    width: 540px;
+    width: 500px;
     left: 118px;
-    top: 350px;
+    top: 300px;
     border-radius: 40px;
     bottom: 260px;
-    /* padding: 25px; */
     opacity: 80%;
-    overflow-y: scroll;
     margin-top: 20px;
-    /* margin-bottom: 30px; */
-    /* padding-bottom: 30px; */
 }
 
 .store-container {
@@ -99,7 +94,6 @@ body {
 .store-container-background {
     display: flex;
     flex-grow: 1;
-    /* background-color: #0C0C0c; */
     border-radius: 20px;
     padding-left: 8px;
     padding-right: 8px;
