@@ -1,14 +1,14 @@
-##### GOOGLE MAPS STORE-LOCATOR
-**Used Google Maps API to create a store locator**
-    Official Guide Used: []()
+### GOOGLE MAPS STORE-LOCATOR
+**Used Google Maps API for Javascript**
+**Official Guide Used**: [Click here](https://developers.google.com/maps/documentation/javascript/tutorial)
 * **Divided the project into 3 parts:**
-    * Part-1 ![After Part-1](/media/Part-1.gif)
-        * Make a wire-frame of to be app ![Wire-frame](/media/Wireframe.png)
+    * Part-1 ![After Part-1](./media/Part-1.gif)
+        * Make a wire-frame of to be app ![Wire-frame](./media/Wireframe.png)
         * Design the UI
             * Import and intialize map
             * Stores list Container
             * Zip Code Search
-    * Part-2 ![After Part-2](/media/Part-2.gif)
+    * Part-2 ![After Part-2](./media/Part-2.gif)
         * Add real data for store list
         * Add Custom Map markers for each address
         * Customize or style the map
