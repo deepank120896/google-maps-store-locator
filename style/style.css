@@ -215,9 +215,9 @@ body {
     margin-right: 8px;
 }
 
-#map-marker {
+/* #map-marker {
     position: absolute;
     z-index: 100;
     top: 500px;
     left: 900px;
-}
+} */
