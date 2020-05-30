@@ -97,12 +97,12 @@ body {
 .store-container-background {
     display: flex;
     flex-grow: 1;
-    border-radius: 20px;
     padding-left: 8px;
     padding-right: 8px;
     margin-bottom: 12px;
     margin-top: 12px;
-    transition: all 0.2s ease-in-out;
+    border-radius: 20px;
+    transition: background 0.2s ease-in-out; 
 }
 
 .store-container-background:hover {
