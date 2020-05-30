@@ -16,10 +16,39 @@ function initMap() {
 
     map = new google.maps.Map(document.getElementById('map'), options);
     infoWindow = new google.maps.InfoWindow();
-    displayStores();
-    showStoreMarkers();
     setOnClickListener();
-    // searchStores();
+    searchStores();
+}
+
+function searchStores() {
+    var foundStores = [];
+    var zipcode = document.querySelector('#zip-code-input').value;
+    // console.log(zipcode)
+    if(zipcode)
+    {  
+        stores.forEach(function(store){
+        var postal = store.address.postalCode.substring(0,5);
+        if(postal == zipcode){
+            foundStores.push(store);
+        }
+        });
+    }
+    else{
+        foundStores = stores;
+    }
+    // console.log(foundStores)
+    clearLocations();
+    displayStores(foundStores);
+    showStoreMarkers(foundStores);
+    setOnClickListener();
+}
+
+function clearLocations() {
+    infoWindow.close();
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+    markers.length = 0;
 }
 
 function setOnClickListener() {
@@ -32,7 +61,7 @@ function setOnClickListener() {
     })
 }
 
-function displayStores() {
+function displayStores(stores) {
     var storesHtml = '';
 
     stores.forEach(function(store,index){
@@ -64,7 +93,7 @@ function displayStores() {
         document.querySelector('.stores-list').innerHTML = storesHtml;
 }
 
-function showStoreMarkers() {
+function showStoreMarkers(stores) {
     var bounds = new google.maps.LatLngBounds();
     stores.forEach(function(store,index){
         var latlng = new google.maps.LatLng(
@@ -112,7 +141,7 @@ function createMarker(latlng, name, address, storeCount, phoneNumber, openStatus
         map: map,
         position: latlng,
         icon: icon,
-        //label: storeCount.toString(),
+        label: `${storeCount}`,
         animation: google.maps.Animation.DROP,
     });
     google.maps.event.addListener(marker, 'click', function() {
@@ -120,30 +149,3 @@ function createMarker(latlng, name, address, storeCount, phoneNumber, openStatus
         infoWindow.open(map, marker);});
     markers.push(marker);
 }
-
-
-// function searchStores() {
-//     let foundStores = [];
-//     let zipcode = document.getElementById('zip-code-input').value;
-
-//     if (zipcode) {
-//         for (let store of stores) {
-//             if (zipcode === store.address.postalCode.substring(0, 5))
-//                 foundStores.push(store);
-//         }
-//     } else {
-//         foundStores = stores;
-//     }
-//     clearLocations();
-//     displayStores(foundStores);
-//     //showStoreMarkers(foundStores);
-//     setOnClickListener();
-// }
-
-// function clearLocations() {
-//     // infoWindow.close();
-//     for (var i = 0; i < markers.length; i++) {
-//         markers[i].setMap(null);
-//     }
-//     markers.length = 0;
-// }
