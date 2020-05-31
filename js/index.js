@@ -1,4 +1,6 @@
-window.onload = function() {}
+window.onload = function() {
+    toggleZoomScreen();
+}
 
 var map;
 var markers = [];
