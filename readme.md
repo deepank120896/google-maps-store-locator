@@ -1,4 +1,5 @@
 ### GOOGLE MAPS STORE-LOCATOR
+### [Go to site](https://maps-store-locator.imfast.io/)
 ##### Used Google Maps API for Javascript
 ##### Official Guide Used: [Click here](https://developers.google.com/maps/documentation/javascript/tutorial)
 * **Divided the project into 3 parts:**
@@ -18,38 +19,8 @@
         * Show Info-Window for selected store
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Design Link
+### Design Link
 https://www.figma.com/file/HuauCfrLa39DV0lK76LLZb/Google-Maps?node-id=0%3A2
 
-## FontAwesome Link
+### FontAwesome Link
 https://kit.fontawesome.com/c939d0e917.js
-
-## Google Maps API Key
-AIzaSyBh15L6ZQVrZVsMjwAhb_3-X6bbgpSGtQk
-**WARNING**
-DO NOT SHARE IT WITH ANYONE
